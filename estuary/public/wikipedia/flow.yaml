@@ -1,0 +1,39 @@
+---
+collections:
+  #The name for your new collection can be whatever you want,
+   #so long as you have permissions in the namespace.
+   #Typically, you'll want to simply copy the source prefix
+   #and add a unique collection name.
+  PeterTrial/public/wikipedia/userupdates:
+      #In this example, our objective is to count the number of updates each user has made
+      #We keep the `user` and `id` properties from the source,
+      #and add a new field called `count`.
+    schema:
+      properties:
+        user:
+            type: string
+        id:
+            type: integer
+        count:
+            type: integer
+
+      required:
+        - user
+        - id
+        - count
+      type: object
+    #Since we're interested in estimating by the dozen, we make `dozens` our collection key.
+    key:
+      - /user
+    derivation:
+      transform:
+        #The transform name can be anything you'd like.
+        user-updates:
+            #Paste the full name of the source collection.
+          source: {name: estuary/public/wikipedia/recentchange}
+            #This simple transform only requires a **publish lambda* function.
+            #More complex transforms also use **update lambdas**.
+            #See the Derivations documentation to learn more about lambdas.
+          publish: {lambda: typescript}
+      #The name you provide for the module will be generated next.
+      typescript: {module: user-updates.ts}
