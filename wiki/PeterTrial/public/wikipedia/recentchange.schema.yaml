@@ -1,0 +1,136 @@
+---
+$schema: "http://json-schema.org/draft-07/schema#"
+properties:
+  $schema:
+    type: string
+  _meta:
+    properties:
+      file:
+        type: string
+      offset:
+        type: integer
+    required:
+      - file
+      - offset
+    type: object
+  bot:
+    type: boolean
+  comment:
+    type: string
+  id:
+    type: integer
+  length:
+    properties:
+      new:
+        type: integer
+      old:
+        type: integer
+    required:
+      - new
+    type: object
+  log_action:
+    type: string
+  log_action_comment:
+    type: string
+  log_id:
+    type: integer
+  log_params:
+    items:
+      type:
+        - integer
+        - string
+    properties:
+      action:
+        type: string
+      actions:
+        type: string
+      auto:
+        type: integer
+      count:
+        type:
+          - integer
+          - object
+      curid:
+        type: string
+      filter:
+        type: string
+      flags:
+        type: string
+      img_sha1:
+        type: string
+      img_timestamp:
+        type: string
+      log:
+        type: integer
+      previd:
+        type: string
+      sitewide:
+        type: boolean
+      userid:
+        type: integer
+    type:
+      - array
+      - object
+  log_type:
+    type: string
+  meta:
+    properties:
+      domain:
+        type: string
+      dt:
+        type: string
+      id:
+        type: string
+      offset:
+        type: integer
+      partition:
+        type: integer
+      request_id:
+        type: string
+      stream:
+        type: string
+      topic:
+        type: string
+      uri:
+        type: string
+    required:
+      - dt
+      - stream
+      - id
+    type: object
+  minor:
+    type: boolean
+  namespace:
+    type: integer
+  parsedcomment:
+    type: string
+  patrolled:
+    type: boolean
+  revision:
+    properties:
+      new:
+        type: integer
+      old:
+        type: integer
+    required:
+      - new
+    type: object
+  server_name:
+    type: string
+  server_script_path:
+    type: string
+  server_url:
+    type: string
+  timestamp:
+    type: integer
+  title:
+    type: string
+  type:
+    type: string
+  user:
+    type: string
+  wiki:
+    type: string
+required:
+  - meta
+type: object
