@@ -16,17 +16,20 @@ collections:
             type: string
         id:
             type: integer
-        count:
+        timestamp:
             type: integer
+        bot:
+            type: boolean
 
       required:
         - user
         - id
-        - count
+        - timestamp
+        - bot
       type: object
     #Since we're interested in estimating by the dozen, we make `dozens` our collection key.
     key:
-      - /user
+      - /user 
     derivation:
       transform:
         #The transform name can be anything you'd like.

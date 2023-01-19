@@ -2,7 +2,8 @@
 // Generated from collection schema flow.yaml?ptr=/collections/PeterTrial~1public~1wikipedia~1userupdates/schema.
 // Referenced from flow.yaml#/collections/PeterTrial~1public~1wikipedia~1userupdates.
 export type Document = {
-    count: number;
+    // count: number;
+    month: string,
     id: number;
     user: string;
 };
