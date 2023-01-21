@@ -23,9 +23,9 @@ collections:
 
       required:
         - user
-        - id
+        #- id
         - timestamp
-        - bot
+        #- bot
       type: object
     #Since we're interested in estimating by the dozen, we make `dozens` our collection key.
     key:

@@ -1,6 +1,4 @@
-import { timeStamp } from 'console';
 import { IDerivation, Document, Register, UserUpdatesSource } from 'flow/PeterTrial/public/wikipedia/userupdates';
-import { stringify } from 'querystring';
 
 // Implementation for derivation flow.yaml#/collections/PeterTrial~1public~1wikipedia~1userupdates/derivation.
 export class Derivation implements IDerivation {
@@ -10,13 +8,19 @@ export class Derivation implements IDerivation {
         _previous: Register,
     ): Document[] {
         // let : {user: string, id: number, bot: boolean, timestamp: number}
-        let timeStamp = source.timestamp
-        let milliseconds = timeStamp;
-        let updateMonth = "";
-        if (milliseconds) {
-            let date = new Date(milliseconds);
-            updateMonth = date.toLocaleString('default', { month: 'long' });
-        }
+        let timeStamp = source.timestamp || Date.now();
+        let d = new Date(timeStamp);
+        const month = d.toLocaleString('default', { month: 'long' })
+
+
+
+        // let milliseconds = timeStamp;
+        // let updateMonth = 0;
+        // if (milliseconds) {
+        //     let date = new Date(milliseconds);
+        //     updateMonth = date.getMonth();
+        // }
+
         let id = source.id;
         let updateId = 0;
         if (id) {
@@ -36,8 +40,8 @@ export class Derivation implements IDerivation {
         }
 
         let out = {
-            timeStamp,
-            month: updateMonth,
+            timestamp: timeStamp,
+            month: month,
             id: updateId,
             user: updateUser,
             bot: updateBot
