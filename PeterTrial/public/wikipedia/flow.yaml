@@ -1,15 +1,14 @@
 ---
 collections:
+  #Previous collection name, comment or delete out
   #estuary/public/wikipedia/recentchange:
   #  schema: recentchange.schema.yaml
   #  key:
   #    - /meta/dt
   #    - /meta/stream
   #    - /meta/id
-  PeterTrial/public/wikipedia/userupdates:
-      #In this example, our objective is to count the number of updates each user has made
-      #We keep the `user` and `id` properties from the source,
-      #and add a new field called `count`.
+  PeterTrial/public/wikipedia/wikiUpdatesMonth:
+      #In this example, our objective is to change the unix timestamp value with the typescript function to a month
     schema:
       properties:
         user:
@@ -20,12 +19,14 @@ collections:
             type: integer
         bot:
             type: boolean
+        month:
+            type: string
 
       required:
         - user
-        #- id
+        - id
         - timestamp
-        #- bot
+        - bot
       type: object
     #Since we're interested in estimating by the dozen, we make `dozens` our collection key.
     key:

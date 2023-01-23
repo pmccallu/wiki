@@ -3,7 +3,7 @@
     "../flow_generated/flow/main.ts",
     "../flow_generated/flow/routes.ts",
     "../flow_generated/flow/server.ts",
-    "../flow_generated/types/PeterTrial/public/wikipedia/userupdates.d.ts",
+    "../flow_generated/types/PeterTrial/public/wikipedia/wikiUpdates.d.ts",
     "../user-updates.ts"
   ]
 }

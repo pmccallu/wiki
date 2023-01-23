@@ -5,15 +5,15 @@ export type Document = unknown;
 export type Lambda = (source: Document, register?: Document, previous?: Document) => Document[];
 
 // Import derivation classes from their implementation modules.
-import { Derivation as PeterTrialPublicWikipediaUserupdates } from '../../user-updates';
+import { Derivation as PeterTrialPublicWikipediaWikiUpdates } from '../../user-updates';
 
 // Build instances of each class, which will be bound to this module's router.
-const __PeterTrialPublicWikipediaUserupdates: PeterTrialPublicWikipediaUserupdates = new PeterTrialPublicWikipediaUserupdates();
+const __PeterTrialPublicWikipediaWikiUpdates: PeterTrialPublicWikipediaWikiUpdates = new PeterTrialPublicWikipediaWikiUpdates();
 
 // Now build the router that's used for transformation lambda dispatch.
 const routes: { [path: string]: Lambda | undefined } = {
-    '/derive/PeterTrial/public/wikipedia/userupdates/user-updates/Publish': __PeterTrialPublicWikipediaUserupdates.userUpdatesPublish.bind(
-        __PeterTrialPublicWikipediaUserupdates,
+    '/derive/PeterTrial/public/wikipedia/wikiUpdates/user-updates/Publish': __PeterTrialPublicWikipediaWikiUpdates.userUpdatesPublish.bind(
+        __PeterTrialPublicWikipediaWikiUpdates,
     ) as Lambda,
 };
 
